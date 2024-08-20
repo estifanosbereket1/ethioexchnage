@@ -6,12 +6,12 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBkgpp0CgW7ZkSnbaoBYM2_kjXoY9Uo_ps",
-  authDomain: "ethiocurrency.firebaseapp.com",
-  projectId: "ethiocurrency",
-  storageBucket: "ethiocurrency.appspot.com",
-  messagingSenderId: "523090938404",
-  appId: "1:523090938404:web:5f9280f2ac6b5a64faa6b1",
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MSID,
+  appId: process.env.APP_ID,
 };
 
 // Initialize Firebase
