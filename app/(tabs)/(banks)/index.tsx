@@ -13,7 +13,7 @@ const bankNames = [
   "Awash Bank ",
   "Ahadu Bank ",
   "Amhara Bank ",
-  "Berhan Bank SC ",
+  "Birhan Bank ",
   "Bank Of Abyssinia ",
   "Commercial Bank Of Ethiopia (CBE) ",
   "Cooperative Bank Of Oromia ",
@@ -23,6 +23,7 @@ const bankNames = [
   "Global Bank ",
   "Hibret Bank ",
   "Gohbetoch Bank ",
+  "Lion International Bank ",
   "Development Bank Of Ethiopia ",
   "Hijra Bank ",
   "Nib International Bank",
@@ -33,7 +34,6 @@ const bankNames = [
   "Wegagen Bank ",
   "Zemen Bank ",
   "Zamzam Bank ",
-  "Lion International Bank ",
 ];
 
 const imageMap: Record<string, any> = {
@@ -42,7 +42,7 @@ const imageMap: Record<string, any> = {
   Awash: require("@/assets/banks/Awash Bank.png"),
   Ahadu: require("@/assets/banks/Ahadu Bank.png"),
   Amhara: require("@/assets/banks/Amhara Bank.png"),
-  Berhan: require("@/assets/banks/Birhan Bank.png"),
+  Birhan: require("@/assets/banks/Birhan Bank.png"),
   Bank: require("@/assets/banks/BOA.png"),
   Commercial: require("@/assets/banks/CBE.png"),
   Cooperative: require("@/assets/banks/COOP Bank.png"),
@@ -79,7 +79,7 @@ const Page = () => {
         title="List of all Banks"
         subTitle="Click any of the listed banks to see their most recent exchange rates "
       />
-      <ScrollView>
+      <ScrollView className="mb-36">
         {bankNames.map((item, index) => (
           <Link
             href={{

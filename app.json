@@ -13,7 +13,8 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.ethicurrency"
     },
     "android": {
       "adaptiveIcon": {
@@ -38,9 +39,8 @@
         "origin": false
       },
       "eas": {
-        "projectId": "23431a21-0507-4e19-af5d-f47dcc3c2614"
+        "projectId": "a8ad3ce9-ae9f-4ecf-a49e-d0e7e70150f4"
       }
-    },
-    "owner": "estif12344ks"
+    }
   }
 }

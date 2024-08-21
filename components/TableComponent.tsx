@@ -251,7 +251,7 @@ const TableComponent: FC<TableComponentProps> = ({ selectedCurrency }) => {
         >
           <Image
             source={imageMap[item.bank_name.split(" ")[0]]}
-            className="h-12 w-12 mr-4"
+            className="h-12 w-12 mr-4 "
           />
 
           <View className="flex-1">
@@ -264,15 +264,22 @@ const TableComponent: FC<TableComponentProps> = ({ selectedCurrency }) => {
               </Text>
             </View>
             <View className="flex-row justify-between mb-2">
-              <View className="flex-col">
-                <Text className="font-semibold text-green-500">Cash</Text>
-                <Text className="text-xs text-gray-600">
-                  Buy: {item.buying_rate}
-                  <Text className="text-green-400"></Text>
+              <View className="flex flex-row gap-4 items-center">
+                <Text className="font-semibold text-lg text-green-500">
+                  Cash
                 </Text>
-                <Text className="text-xs text-gray-600">
-                  Sell: {item.selling_rate}
-                </Text>
+                <View className="flex flex-row gap-1 items-center">
+                  <Text className="text-sm text-neutral-600">Buy:</Text>
+                  <Text className="text-lg text-neutral-700 font-bold">
+                    {item.buying_rate}
+                  </Text>
+                </View>
+                <View className="flex flex-row gap-1 items-center">
+                  <Text className="text-sm text-neutral-600">Sell:</Text>
+                  <Text className="text-lg text-neutral-700 font-bold">
+                    {item.selling_rate}
+                  </Text>
+                </View>
               </View>
             </View>
           </View>

@@ -51,8 +51,18 @@ export default function RootLayout() {
 function RootLayoutNav() {
   return (
     <BankProvider>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack
+        screenOptions={{
+          contentStyle: {
+            padding: 0, // Ensure no padding
+            margin: 0, // Ensure no margin
+          },
+        }}
+      >
+        <Stack.Screen
+          name="(tabs)"
+          options={{ headerShown: false, statusBarColor: "#03001C" }}
+        />
       </Stack>
     </BankProvider>
   );
