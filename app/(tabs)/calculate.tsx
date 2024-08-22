@@ -168,6 +168,7 @@ const Page: React.FC<Banks> = () => {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
+      keyboardVerticalOffset={Platform.OS === "ios" ? 60 : 0}
       className="flex-1 mt-10"
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -195,14 +196,19 @@ const Page: React.FC<Banks> = () => {
               defaultVal={bankCurr}
               onCurrencyChange={setBankCurr}
             />
-            <TextInput
-              placeholder="Enter Amount"
-              keyboardType="numeric"
-              className="border-b border-black mb-9 h-10 px-2 w-[50%] text-center shadow-2xl self-center"
-              value={amount}
-              onChangeText={setAmount}
-            />
-            <View className="flex items-center flex-row justify-between mx-3 gap-3">
+            <View className="flex flex-row justify-center gap-4 items-center">
+              <TextInput
+                placeholder="Enter Amount"
+                keyboardType="numeric"
+                className="border-b  border-black  h-10 px-2 w-[50%] text-center shadow-2xl self-center"
+                value={amount}
+                onChangeText={setAmount}
+              />
+              <Text className="text-xl font-medium bg-[#03001C] rounded-xl px-4 py-2 text-white">
+                {curr}
+              </Text>
+            </View>
+            {/* <View className="flex items-center flex-row justify-between mx-3 gap-3">
               <TouchableOpacity
                 className="w-[80%] py-2 rounded-2xl bg-black"
                 disabled={!amount}
@@ -217,7 +223,7 @@ const Page: React.FC<Banks> = () => {
                   Birr
                 </Text>
               </View>
-            </View>
+            </View> */}
             {result !== null && (
               <View className="flex flex-col rounded-2xl shadow-xl bg-white px-8 py-6 justify-center items-center gap-5">
                 <View className="my-4 flex flex-row justify-center items-center gap-5  ">
