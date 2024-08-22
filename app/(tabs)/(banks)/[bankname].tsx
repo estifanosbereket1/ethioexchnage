@@ -267,8 +267,8 @@ const BankName = () => {
   useEffect(() => {
     if (bankname) {
       setBankName(bankname.toString());
-      console.log(bankData[bankname.toString()]);
-      console.log(bankname);
+      // console.log(bankData[bankname.toString()]);
+      // console.log(bankname);
     }
   }, [bankname]);
 

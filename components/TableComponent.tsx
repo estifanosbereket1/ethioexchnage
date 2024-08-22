@@ -189,7 +189,7 @@ const TableComponent: FC<TableComponentProps> = ({ selectedCurrency }) => {
     useExchangeRates(selectedCurrency);
 
   useEffect(() => {
-    console.log(exchangeRates, "kkkkkkkkkkkkkkkkkkkkkkkkkkkk");
+    // console.log(exchangeRates, "kkkkkkkkkkkkkkkkkkkkkkkkkkkk");
   }, [selectedCurrency]);
 
   if (loading) {

@@ -152,8 +152,6 @@ const Page = () => {
   const { bankData, error, loading } = useBankContext();
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  console.log(bankData, "llllllllllllllllll");
-
   // Function to check network connection
   const checkNetworkConnection = async () => {
     try {
