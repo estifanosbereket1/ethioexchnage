@@ -13,7 +13,7 @@ const bankNames = [
   "Awash Bank ",
   "Ahadu Bank ",
   "Amhara Bank ",
-  "Birhan Bank ",
+  // "Berhan Bank ",
   "Bank Of Abyssinia ",
   "Commercial Bank Of Ethiopia (CBE) ",
   "Cooperative Bank Of Oromia ",
@@ -42,7 +42,7 @@ const imageMap: Record<string, any> = {
   Awash: require("@/assets/banks/Awash Bank.png"),
   Ahadu: require("@/assets/banks/Ahadu Bank.png"),
   Amhara: require("@/assets/banks/Amhara Bank.png"),
-  Birhan: require("@/assets/banks/Birhan Bank.png"),
+  Berhan: require("@/assets/banks/Birhan Bank.png"),
   Bank: require("@/assets/banks/BOA.png"),
   Commercial: require("@/assets/banks/CBE.png"),
   Cooperative: require("@/assets/banks/COOP Bank.png"),
@@ -66,9 +66,8 @@ const imageMap: Record<string, any> = {
 };
 
 const Page = () => {
-  // const { bankData, loading, error } = useBankContext();
+  const { bankData, loading, error } = useBankContext();
 
-  const { bankData } = useBank();
   useEffect(() => {
     console.log(bankNames, "kkkkkkkkkkkkkk");
   }, []);
@@ -80,30 +79,45 @@ const Page = () => {
         subTitle="Click any of the listed banks to see their most recent exchange rates "
       />
       <ScrollView className="mb-36">
-        {bankNames.map((item, index) => (
-          <Link
-            href={{
-              pathname: "/[bankname]",
-              params: { bankname: item as string },
-            }}
-            key={index}
-            asChild
-            className="border-b border-gray-600"
-          >
-            <TouchableOpacity className="w-full">
-              <View className="w-full bg-white rounded-lg p-4 flex-row justify-between items-center">
-                <View className="flex flex-row gap-4 items-center max-w-[80%]">
-                  <Image
-                    source={imageMap[item.split(" ")[0]]}
-                    className="h-12 w-12"
-                  />
-                  <Text className="text-lg">{item}</Text>
-                </View>
-                <AntDesign name="right" size={24} color="black" />
-              </View>
-            </TouchableOpacity>
-          </Link>
-        ))}
+        {loading ? (
+          <>
+            <View className="my-2 mx-2 rounded-lg shadow-lg">
+              {[...Array(10)].map((_, index) => (
+                <View
+                  key={index}
+                  className="bg-gray-200 rounded-lg animate-pulse h-20 w-[95%] mx-auto my-2"
+                ></View>
+              ))}
+            </View>
+          </>
+        ) : (
+          <>
+            {bankNames.map((item, index) => (
+              <Link
+                href={{
+                  pathname: "/[bankname]",
+                  params: { bankname: item as string },
+                }}
+                key={index}
+                asChild
+                className="border-b border-gray-600"
+              >
+                <TouchableOpacity className="w-full">
+                  <View className="w-full bg-white rounded-lg p-4 flex-row justify-between items-center">
+                    <View className="flex flex-row gap-4 items-center max-w-[80%]">
+                      <Image
+                        source={imageMap[item.split(" ")[0]]}
+                        className="h-12 w-12"
+                      />
+                      <Text className="text-lg">{item}</Text>
+                    </View>
+                    <AntDesign name="right" size={24} color="black" />
+                  </View>
+                </TouchableOpacity>
+              </Link>
+            ))}
+          </>
+        )}
       </ScrollView>
     </View>
   );

@@ -296,8 +296,16 @@ const BankName = () => {
 
   if (!bank) {
     return (
-      <View>
-        <Text>Error loading data or no data available.</Text>
+      <View className="flex flex-col gap-3">
+        <Text className="text-xl text-red-600">Please Refresh yor Network</Text>
+        <View className="my-2 mx-2 rounded-lg shadow-lg">
+          {[...Array(10)].map((_, index) => (
+            <View
+              key={index}
+              className="bg-gray-200 rounded-lg animate-pulse h-20 w-[95%] mx-auto my-2"
+            ></View>
+          ))}
+        </View>
       </View>
     );
   }
