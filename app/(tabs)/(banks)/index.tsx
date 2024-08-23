@@ -79,7 +79,7 @@ const Page = () => {
         subTitle="Click any of the listed banks to see their most recent exchange rates "
       />
       <ScrollView className="mb-36">
-        {loading ? (
+        {loading || error ? (
           <>
             <View className="my-2 mx-2 rounded-lg shadow-lg">
               {[...Array(10)].map((_, index) => (

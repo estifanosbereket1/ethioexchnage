@@ -59,7 +59,7 @@ const HighestWrapper = () => {
   const { highestRate, error, loading } = useHighestExchange(curr);
   return (
     <>
-      {loading ? (
+      {loading || error ? (
         <View className="my-2 mx-2 bg-[#03001C] rounded-lg shadow-lg">
           <View className="bg-[#021526] rounded-lg animate-pulse h-24 w-[95%] mx-auto my-2"></View>
           <View className="bg-[#021526] rounded-lg animate-pulse h-24 w-[95%] mx-auto my-2"></View>
@@ -113,9 +113,10 @@ const HighestWrapper = () => {
           </View>
         </View>
       ) : (
-        <Text className="text-center mt-10 text-red-500">
-          Error: {error ? error : "No data available"}
-        </Text>
+        <View className="my-2 mx-2 bg-[#03001C] rounded-lg shadow-lg">
+          <View className="bg-[#021526] rounded-lg animate-pulse h-24 w-[95%] mx-auto my-2"></View>
+          <View className="bg-[#021526] rounded-lg animate-pulse h-24 w-[95%] mx-auto my-2"></View>
+        </View>
       )}
     </>
   );
