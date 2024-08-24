@@ -17,7 +17,7 @@ const PrivacyPolicy = ({
       swipeDirection="down"
       style={{ justifyContent: "flex-end", margin: 0 }}
     >
-      <View className="bg-white p-6 rounded-t-2xl shadow-lg">
+      <View className="bg-white p-3 rounded-t-2xl shadow-lg">
         <View className="mb-4">
           <Text className="text-xl font-bold text-gray-800 text-center">
             Privacy Policy
@@ -37,12 +37,11 @@ const PrivacyPolicy = ({
             developer cannot be held liable for any financial losses or damages
             arising from the use of the app. Users are encouraged to verify
             exchange rates with their banks before proceeding with any
-            transactions. Since this app does not collect or store any personal
-            data, there are no security concerns regarding user information.
+            transactions.
           </Text>
           <Text className="text-gray-600 leading-6 mt-4">
             If you have any questions or concerns regarding this privacy policy,
-            please contact us at:{" "}
+            please contact us at:
             <Text className="text-blue-500">estifb045@example.com</Text>.
           </Text>
         </ScrollView>

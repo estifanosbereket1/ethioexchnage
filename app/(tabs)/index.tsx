@@ -180,7 +180,7 @@ const Page = () => {
       setKey((prevKey) => prevKey + 1);
 
       // Simulate a network request for refreshing data
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 3000));
     } catch (error) {
       console.error("Failed to refresh:", error);
     } finally {
@@ -201,20 +201,20 @@ const Page = () => {
           <NewHeader key={`header-${key}`} />
 
           {!connection ? (
-            <View className="flex flex-col gap-4 items-center justify-center mt-20">
+            <View className="flex flex-col gap-4 items-center px-2 justify-center mt-40">
               {/* <Image
                 source={require("@/assets/banks/no-internet.png")}
                 className="h-[50px] w-[50px] items-center"
               /> */}
-              <AntDesign name="wifi" size={24} color="red" />
+              <AntDesign name="wifi" size={50} color="red" />
               <Text className="text-red-600 text-center text-lg">
                 No Internet Connection. Please check your network and refresh
-                the page.
+                the screen.
               </Text>
             </View>
           ) : (
             <>
-              <HighestWrapper />
+              <HighestWrapper key={`high-${key}`} />
               <View key={`filter-view-${key}`} className="flex flex-col gap-1">
                 <SecondHeader />
                 <FilterWithView key={`filter-${key}`} />
@@ -227,7 +227,9 @@ const Page = () => {
             onPress={() => setIsModalVisible(true)}
             className="mt-4"
           >
-            <Text className="text-blue-500 text-center">Privacy Policy</Text>
+            <Text className="text-blue-500 text-center font-bold text-xl">
+              Privacy Policy
+            </Text>
           </TouchableOpacity>
         </View>
       </ScrollView>

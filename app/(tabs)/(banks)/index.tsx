@@ -69,7 +69,7 @@ const Page = () => {
   const { bankData, loading, error } = useBankContext();
 
   useEffect(() => {
-    console.log(bankNames, "kkkkkkkkkkkkkk");
+    // console.log(bankNames, "kkkkkkkkkkkkkk");
   }, []);
 
   return (
