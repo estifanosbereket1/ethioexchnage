@@ -209,7 +209,7 @@ const imageMap: Record<string, any> = {
   Dashen: require("@/assets/banks/Dashen bank.png"),
   Enat: require("@/assets/banks/Enat Bank.png"),
   Gadaa: require("@/assets/banks/Gadda Bank.png"),
-  Global: require("@/assets/banks/Global Bank.png"),
+  Global: require("@/assets/banks/newglobal.jpeg"),
   Gohbetoch: require("@/assets/banks/goh.png"),
   Hibret: require("@/assets/banks/Hibret Bank.png"),
   Hijra: require("@/assets/banks/Hijra Bank.png"),
@@ -264,22 +264,28 @@ const BankName = () => {
   const [bank, setBank] = useState<BankData[] | undefined>(undefined);
   const [loading, setLoading] = useState<boolean>(true);
 
+  // useEffect(() => {
+  //   if (bankname) {
+  //     setBankName(bankname.toString());
+  //   }
+  // }, [bankname]);
+
+  // console.log(bankName, "kjjjjkkkkkkk");
+
   useEffect(() => {
     if (bankname) {
       setBankName(bankname.toString());
-      // console.log(bankData[bankname.toString()]);
-      // console.log(bankname);
     }
-  }, [bankname]);
-
-  useEffect(() => {
     if (bankName && bankData) {
       // Assuming bankData is a dictionary with bank names as keys
-      const bankDataForName = bankData[bankName];
+
+      const bankDataForName = bankData[bankName + " "];
+      console.log(bankData);
       setBank(bankDataForName);
+      // console.log(bank, "lllllll");
       setLoading(false);
     }
-  }, [bankName, bankData]);
+  }, [bankName, bankData, bankname]);
 
   if (loading) {
     return (

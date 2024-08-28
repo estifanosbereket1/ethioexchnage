@@ -167,7 +167,7 @@ const imageMap: Record<string, any> = {
   Dashen: require("@/assets/banks/Dashen bank.png"),
   Enat: require("@/assets/banks/Enat Bank.png"),
   Gadaa: require("@/assets/banks/Gadda Bank.png"),
-  Global: require("@/assets/banks/Global Bank.png"),
+  Global: require("@/assets/banks/newglobal.jpeg"),
   Gohbetoch: require("@/assets/banks/goh.png"),
   Hibret: require("@/assets/banks/Hibret Bank.png"),
   Hijra: require("@/assets/banks/Hijra Bank.png"),

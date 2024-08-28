@@ -4,7 +4,7 @@ import AntDesign from "@expo/vector-icons/AntDesign";
 import { Link, useRouter } from "expo-router";
 import Header from "@/components/Header";
 import { useBankContext } from "@/context/BankContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useBank from "@/hooks/useBank";
 
 const bankNames = [
@@ -49,7 +49,7 @@ const imageMap: Record<string, any> = {
   Dashen: require("@/assets/banks/Dashen bank.png"),
   Enat: require("@/assets/banks/Enat Bank.png"),
   Gadaa: require("@/assets/banks/Gadda Bank.png"),
-  Global: require("@/assets/banks/Global Bank.png"),
+  Global: require("@/assets/banks/newglobal.jpeg"),
   Gohbetoch: require("@/assets/banks/goh.png"),
   Hibret: require("@/assets/banks/Hibret Bank.png"),
   Hijra: require("@/assets/banks/Hijra Bank.png"),
@@ -65,58 +65,130 @@ const imageMap: Record<string, any> = {
   Zamzam: require("@/assets/banks/zamzam bank.png"),
 };
 
+// const Page = () => {
+//   const { bankData, loading, error } = useBankContext();
+//   let bankNamesArray: any = [];
+
+//   useEffect(() => {
+//     if (bankData) {
+//       bankNamesArray = Object.keys(bankData);
+//       console.log(bankNamesArray); // Logs the array of bank names
+//     }
+//   }, [bankData]);
+
+//   return (
+//     <View className="flex flex-col gap-2 my-5">
+//       <Header
+//         title="List of all Banks"
+//         subTitle="Click any of the listed banks to see their most recent exchange rates "
+//       />
+//       <ScrollView className="mb-36">
+//         {loading || error ? (
+//           <>
+//             <View className="my-2 mx-2 rounded-lg shadow-lg">
+//               {[...Array(10)].map((_, index) => (
+//                 <View
+//                   key={index}
+//                   className="bg-gray-200 rounded-lg animate-pulse h-20 w-[95%] mx-auto my-2"
+//                 ></View>
+//               ))}
+//             </View>
+//           </>
+//         ) : (
+//           <>
+//             {bankNamesArray.map((item: any, index: any) => (
+//               <Link
+//                 href={{
+//                   pathname: "/[bankname]",
+//                   params: { bankname: item as string },
+//                 }}
+//                 key={index}
+//                 asChild
+//                 className="border-b border-gray-600"
+//               >
+//                 <TouchableOpacity className="w-full">
+//                   <View className="w-full bg-white rounded-lg p-4 flex-row justify-between items-center">
+//                     <View className="flex flex-row gap-4 items-center max-w-[80%]">
+//                       <Image
+//                         source={imageMap[item.split(" ")[0]]}
+//                         className="h-12 w-12"
+//                       />
+//                       <Text className="text-lg">{item}</Text>
+//                     </View>
+//                     <AntDesign name="right" size={24} color="black" />
+//                   </View>
+//                 </TouchableOpacity>
+//               </Link>
+//             ))}
+//           </>
+//         )}
+//       </ScrollView>
+//     </View>
+//   );
+// };
 const Page = () => {
   const { bankData, loading, error } = useBankContext();
+  const [bankNamesArray, setBankNamesArray] = useState<any>([]);
+
+  // useEffect(() => {
+  //   if (bankData) {
+  //     const names = Object.keys(bankData).map((name) => name.trim());
+  //     setBankNamesArray(names);
+  //     console.log(names); // Logs the array of bank names
+  //   }
+  // }, [bankData]);
 
   useEffect(() => {
-    // console.log(bankNames, "kkkkkkkkkkkkkk");
-  }, []);
+    if (bankData) {
+      const names = Object.keys(bankData)
+        .map((name) => name.trim())
+        .filter((name) => name !== "Birhan Bank"); // Exclude "Birhan Bank"
+      setBankNamesArray(names);
+      console.log(names); // Logs the array of bank names
+    }
+  }, [bankData]);
 
   return (
     <View className="flex flex-col gap-2 my-5">
       <Header
         title="List of all Banks"
-        subTitle="Click any of the listed banks to see their most recent exchange rates "
+        subTitle="Click any of the listed banks to see their most recent exchange rates"
       />
       <ScrollView className="mb-36">
         {loading || error ? (
-          <>
-            <View className="my-2 mx-2 rounded-lg shadow-lg">
-              {[...Array(10)].map((_, index) => (
-                <View
-                  key={index}
-                  className="bg-gray-200 rounded-lg animate-pulse h-20 w-[95%] mx-auto my-2"
-                ></View>
-              ))}
-            </View>
-          </>
-        ) : (
-          <>
-            {bankNames.map((item, index) => (
-              <Link
-                href={{
-                  pathname: "/[bankname]",
-                  params: { bankname: item as string },
-                }}
+          <View className="my-2 mx-2 rounded-lg shadow-lg">
+            {[...Array(10)].map((_, index) => (
+              <View
                 key={index}
-                asChild
-                className="border-b border-gray-600"
-              >
-                <TouchableOpacity className="w-full">
-                  <View className="w-full bg-white rounded-lg p-4 flex-row justify-between items-center">
-                    <View className="flex flex-row gap-4 items-center max-w-[80%]">
-                      <Image
-                        source={imageMap[item.split(" ")[0]]}
-                        className="h-12 w-12"
-                      />
-                      <Text className="text-lg">{item}</Text>
-                    </View>
-                    <AntDesign name="right" size={24} color="black" />
-                  </View>
-                </TouchableOpacity>
-              </Link>
+                className="bg-gray-200 rounded-lg animate-pulse h-20 w-[95%] mx-auto my-2"
+              ></View>
             ))}
-          </>
+          </View>
+        ) : (
+          bankNamesArray.map((item: any, index: any) => (
+            <Link
+              href={{
+                pathname: "/[bankname]",
+                params: { bankname: item },
+              }}
+              key={index}
+              asChild
+              className="border-b border-gray-600"
+            >
+              <TouchableOpacity className="w-full">
+                <View className="w-full bg-white rounded-lg p-4 flex-row justify-between items-center">
+                  <View className="flex flex-row gap-4 items-center max-w-[80%]">
+                    <Image
+                      source={imageMap[item.split(" ")[0]]}
+                      className="h-12 w-12"
+                    />
+                    <Text className="text-lg">{item}</Text>
+                  </View>
+                  <AntDesign name="right" size={24} color="black" />
+                </View>
+              </TouchableOpacity>
+            </Link>
+          ))
         )}
       </ScrollView>
     </View>
