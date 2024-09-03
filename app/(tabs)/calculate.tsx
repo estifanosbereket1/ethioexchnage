@@ -26,7 +26,7 @@ const imageMap: Record<string, any> = {
   Awash: require("@/assets/banks/Awash Bank.png"),
   Ahadu: require("@/assets/banks/Ahadu Bank.png"),
   Amhara: require("@/assets/banks/Amhara Bank.png"),
-  Birhan: require("@/assets/banks/Birhan Bank.png"),
+  Berhan: require("@/assets/banks/Birhan Bank.png"),
   Bank: require("@/assets/banks/BOA.png"),
   BOA: require("@/assets/banks/BOA.png"),
   Commercial: require("@/assets/banks/CBE.png"),

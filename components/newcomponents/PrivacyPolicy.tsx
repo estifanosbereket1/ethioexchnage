@@ -39,7 +39,7 @@ const PrivacyPolicy = ({
             exchange rates with their banks before proceeding with any
             transactions.
           </Text>
-          <Text className="text-gray-600 leading-6 mt-4 mb-5">
+          <Text className="text-gray-600 leading-6 mt-4 mb-5 ">
             If you have any questions regarding this privacy policy, please
             contact us at:
             <Text className="text-blue-500">estifb045@gmail.com</Text>.
